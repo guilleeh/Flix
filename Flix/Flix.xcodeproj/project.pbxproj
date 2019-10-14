@@ -15,6 +15,7 @@
 		BB7244E823550A5D00F87816 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB7244E623550A5D00F87816 /* LaunchScreen.storyboard */; };
 		BB7244F323550A5D00F87816 /* FlixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7244F223550A5D00F87816 /* FlixTests.swift */; };
 		BB7244FE23550A5D00F87816 /* FlixUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7244FD23550A5D00F87816 /* FlixUITests.swift */; };
+		BB72450C2355181B00F87816 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB72450B2355181B00F87816 /* MovieCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		BB7244F923550A5D00F87816 /* FlixUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlixUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB7244FD23550A5D00F87816 /* FlixUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlixUITests.swift; sourceTree = "<group>"; };
 		BB7244FF23550A5D00F87816 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB72450B2355181B00F87816 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				BB7244DB23550A5B00F87816 /* AppDelegate.swift */,
 				BB7244DD23550A5B00F87816 /* SceneDelegate.swift */,
 				BB7244DF23550A5B00F87816 /* MoviesViewController.swift */,
+				BB72450B2355181B00F87816 /* MovieCell.swift */,
 				BB7244E123550A5B00F87816 /* Main.storyboard */,
 				BB7244E423550A5D00F87816 /* Assets.xcassets */,
 				BB7244E623550A5D00F87816 /* LaunchScreen.storyboard */,
@@ -261,6 +264,7 @@
 			files = (
 				BB7244E023550A5B00F87816 /* MoviesViewController.swift in Sources */,
 				BB7244DC23550A5B00F87816 /* AppDelegate.swift in Sources */,
+				BB72450C2355181B00F87816 /* MovieCell.swift in Sources */,
 				BB7244DE23550A5B00F87816 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
