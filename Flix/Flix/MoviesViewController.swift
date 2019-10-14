@@ -8,8 +8,10 @@
 
 import UIKit
 
-class MoviesViewController: UIViewController {
+class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+
     
+    @IBOutlet weak var tableView: UITableView!
     //properties - available for the lifestyle of the screen
     var movies = [[String: Any]]() // creation of array of dictionaries
     
@@ -19,30 +21,45 @@ class MoviesViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        tableView.dataSource = self
+        tableView.delegate = self
+        
         let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
         let task = session.dataTask(with: request) { (data, response, error) in
-           // This will run when the network request returns
-           if let error = error {
-              print(error.localizedDescription)
-           } else if let data = data {
-              let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+            // This will run when the network request returns
+            if let error = error {
+                print(error.localizedDescription)
+            } else if let data = data {
+                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
             
-            self.movies = dataDictionary["results"] as! [[String: Any]] //type casting to array of dict
+                self.movies = dataDictionary["results"] as! [[String: Any]] //type casting to array of dict
+                
+                self.tableView.reloadData() // We will call the below 2 functions again
             
-            
-              
-            
-              
-
-              // TODO: Get the array of movies
-              // TODO: Store the movies in a property to use elsewhere
-              // TODO: Reload your table view data
-
            }
         }
         task.resume()
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //asking for a number of rows
+        return self.movies.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //for a specific row, give me the cell
+        //indexPath is the current row number
+        let cell = UITableViewCell()
+        
+        let movie = self.movies[indexPath.row]
+        let title = movie["title"] as! String //casting as a string
+        //Swift optionals
+        cell.textLabel!
+            .text = "hello \(title)"
+        
+        return cell
     }
 
 
